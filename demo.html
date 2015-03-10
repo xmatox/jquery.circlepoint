@@ -1,19 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>jQuery Knob demo</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="jquery.circlepoint.js"></script>
-    <script>
-        $(function($) {
-            $(".circlepoint").circlepoint();
-        });
-    </script>
+    <title>jQuery Circlepoint Demo</title>
+
+    <style>
+        code{
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body>
-<h1>jQuery Circlepoint</h1>
-
+<h1>jQuery Circlepoint Demo</h1>
+<h3>Classic</h3>
 <div class="circlepoint"></div>
-
+<br/><br/>
+<code>
+    $(".circlepoint").circlepoint();
+</code>
+<br/><br/>
+<h3>With options</h3>
+<div class="circlepoint_options"></div>
+<br/><br/>
+<code>
+    $(".circlepoint_options").circlepoint({
+        nbPoint: 8,                             // points / nombre de points
+        totalSize: 50,                          // width / largueur (px)
+        input: false,                           // input id : false for hide it / false pour le désactiver
+        input_value: 0,                         // input value
+        input_fontSize: 15,                     // input font size
+        sizePointSup: 10,                       // size of the main points / taille des points principaux (px)
+        sizePointInf: 5,                        // size of secondary points / taille des points secondaires (px)
+        sizePoint: 3,                           // size of the other points / taille des autres points (px)
+        typePoint: "rond",                      // type of dots / type de points (rond / carre)
+        bgdColorSup: "#123456",                 // color of the main points / couleur des points principaux
+        bgdColorInf: "#987645",                 // color secondary points / couleur des points secondaires
+        bgdColor: "#741852",                    // color of the other points / couleur des autres points
+        bgdColorHover: "#FFCC00",               // color of points on mouse hover / couleur des points au survol
+        changeAction: null                      // change event
+    });
+</code>
+<br/><br/>
+<h3>With options and change event</h3>
+<div class="circlepoint_options_event"></div>
+<div class="circlepoint_options_event__text"></div>
+<br/><br/>
+<code>
+    $(".circlepoint_options_event").circlepoint({
+        nbPoint: 32,                             // points / nombre de points
+        totalSize: 200,                          // width / largueur (px)
+        input: "circlepoint_input",              // input id : false for hide it / false pour le désactiver
+        input_value: 0,                          // input value
+        input_fontSize: 20,                      // input font size
+        sizePointSup: 20,                        // size of the main points / taille des points principaux (px)
+        sizePointInf: 10,                        // size of secondary points / taille des points secondaires (px)
+        sizePoint: 5,                            // size of the other points / taille des autres points (px)
+        typePoint: "rond",                       // type of dots / type de points (rond / carre)
+        bgdColorSup: "#0884FF",                  // color of the main points / couleur des points principaux
+        bgdColorInf: "#EC151D",                  // color secondary points / couleur des points secondaires
+        bgdColor: "#219D19",                     // color of the other points / couleur des autres points
+        bgdColorHover: "#FFCC00",                // color of points on mouse hover / couleur des points au survol
+        changeAction: function () {              // change event
+            $(".circlepoint_options_event__text").html("You choose : "+$( this ).val()+" degrees");
+        }
+    });
+</code>
+<br/><br/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="jquery.circlepoint.js"></script>
+<script>
+    $(function($) {
+        // classic
+        $(".circlepoint").circlepoint();
+        // with options
+        $(".circlepoint_options").circlepoint({
+            nbPoint: 8,                             // points / nombre de points
+            totalSize: 50,                          // width / largueur (px)
+            input: false,                           // input id : false for hide it / false pour le désactiver
+            input_value: 0,                         // input value
+            input_fontSize: 15,                     // input font size
+            sizePointSup: 10,                       // size of the main points / taille des points principaux (px)
+            sizePointInf: 5,                        // size of secondary points / taille des points secondaires (px)
+            sizePoint: 3,                           // size of the other points / taille des autres points (px)
+            typePoint: "rond",                      // type of dots / type de points (rond / carre)
+            bgdColorSup: "#123456",                 // color of the main points / couleur des points principaux
+            bgdColorInf: "#987645",                 // color secondary points / couleur des points secondaires
+            bgdColor: "#741852",                    // color of the other points / couleur des autres points
+            changeAction: null
+        });
+        // with options and change event
+        $(".circlepoint_options_event").circlepoint({
+            nbPoint: 32,                             // points / nombre de points
+            totalSize: 200,                          // width / largueur (px)
+            input: "circlepoint_input",              // input id : false for hide it / false pour le désactiver
+            input_value: 0,                          // input value
+            input_fontSize: 20,                      // input font size
+            sizePointSup: 20,                        // size of the main points / taille des points principaux (px)
+            sizePointInf: 10,                        // size of secondary points / taille des points secondaires (px)
+            sizePoint: 5,                            // size of the other points / taille des autres points (px)
+            typePoint: "rond",                       // type of dots / type de points (rond / carre)
+            bgdColorSup: "#0884FF",                  // color of the main points / couleur des points principaux
+            bgdColorInf: "#EC151D",                  // color secondary points / couleur des points secondaires
+            bgdColor: "#219D19",                     // color of the other points / couleur des autres points
+            changeAction: function () {              // change event
+                $(".circlepoint_options_event__text").html("You choose : "+$( this ).val()+" degrees");
+            }
+        });
+    });
+</script>
 </body>
 </html>
