@@ -2,7 +2,7 @@
 jQuery Plugin for interactive point circles
 
 ### Demo
-http://circlepoint.thomas-abadie.net/demo.html
+An exemple on the [demo page](http://circlepoint.thomas-abadie.net/demo.html "Demo")
 
 ### Usage
 First, include the jQuery and circlepoint javascript files.
